@@ -22,6 +22,10 @@ module ArComEnlaplataRedes
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 
+    config.x.app_name = 'Redes en La Plata'
+    config.x.app_description = 'Accedé a los mejores productos y servicios en La Plata, Buenos Aires, Argentina.'
+    config.x.app_theme_color = '#ffffff'
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading

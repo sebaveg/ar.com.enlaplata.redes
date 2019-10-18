@@ -7,17 +7,21 @@ html lang="es"
 
     meta content="#{asset_path('ms/ms-icon-144x144.png')}" name="msapplication-TileImage"
 
-    meta content="#ffffff" name="msapplication-TileColor"
-    meta content="#ffffff" name="theme-color"
-    meta content="Redes sociales para acceder a diversos servicios en La Plata, Buenos Aires, Argentina." name="description"
+    meta content="#{Rails.configuration.x.app_theme_color}" name="msapplication-TileColor"
+    meta content="#{Rails.configuration.x.app_theme_color}" name="theme-color"
+    meta content="#{content_for?(:title) ? yield(:title) : Rails.configuration.x.app_description}" name="description"
 
-    meta content="Redes en La Plata" property="og:title"
-    meta content="Redes sociales para acceder a diversos servicios en La Plata), Buenos Aires, Argentina." property="og:description"
+    meta content="article" property="og:type"
+    meta content="#{content_for?(:title) ? yield(:title) : Rails.configuration.x.app_name}" property="og:title"
+    meta content="#{content_for?(:title) ? yield(:title) : Rails.configuration.x.app_description}" property="og:description"
     meta content="#{asset_url('logo.png')}" property="og:image"
     meta content="#{home_url}" property="og:url"
-    meta content="European Travel Destinations " name="twitter:title"
-    meta content="Redes sociales para acceder a diversos servicios en La Plata), Buenos Aires, Argentina." name="twitter:description"
-    meta content="http://enlaplata.com.ar/logo.png" name="twitter:image"
+
+    meta content="391880048432919" property="fb:app_id"
+
+    meta content="#{content_for?(:title) ? yield(:title) : Rails.configuration.x.app_name}" name="twitter:title"
+    meta content="#{content_for?(:title) ? yield(:title) : Rails.configuration.x.app_description}" name="twitter:description"
+    meta content="#{asset_url('logo.png')}" name="twitter:image"
     meta content="summary_large_image" name="twitter:card"
 
     link href="#{asset_path('android/android-icon-36x36.png')}" rel="icon" sizes="36x36" type="image/png"
@@ -43,7 +47,7 @@ html lang="es"
 
     link href="/manifest.json" rel="manifest"
 
-    title = 'Redes en La Plata'
+    title = content_for?(:title) ? yield(:title) : Rails.configuration.x.app_name 
 
     / Font Awesome
     link href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" rel="stylesheet"
@@ -53,6 +57,9 @@ html lang="es"
     link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/css/mdb.min.css" rel="stylesheet"
 
     = stylesheet_link_tag('frontend', media: 'all', 'data-turbolinks-track': 'reload')
+
+    = csrf_meta_tags
+    = csp_meta_tag
 
   body
     div style=("height: 100vh;") 

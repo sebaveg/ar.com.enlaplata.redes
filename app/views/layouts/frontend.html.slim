@@ -14,15 +14,10 @@ html lang="es"
     meta content="article" property="og:type"
     meta content="#{content_for?(:title) ? yield(:title) : Rails.configuration.x.app_name}" property="og:title"
     meta content="#{content_for?(:title) ? yield(:title) : Rails.configuration.x.app_description}" property="og:description"
-    meta content="#{asset_url('logo.png')}" property="og:image"
+    meta content="#{asset_url('logo_1200x630.png')}" property="og:image"
     meta content="#{home_url}" property="og:url"
 
     meta content="391880048432919" property="fb:app_id"
-
-    meta content="#{content_for?(:title) ? yield(:title) : Rails.configuration.x.app_name}" name="twitter:title"
-    meta content="#{content_for?(:title) ? yield(:title) : Rails.configuration.x.app_description}" name="twitter:description"
-    meta content="#{asset_url('logo.png')}" name="twitter:image"
-    meta content="summary_large_image" name="twitter:card"
 
     link href="#{asset_path('android/android-icon-36x36.png')}" rel="icon" sizes="36x36" type="image/png"
     link href="#{asset_path('android/android-icon-48x48.png')}" rel="icon" sizes="48x48" type="image/png"
